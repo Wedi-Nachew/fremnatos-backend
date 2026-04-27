@@ -1,0 +1,260 @@
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <title>Welcome to Freminatos</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f5f5f5;
+        color: #333;
+      }
+      .email-wrapper {
+        max-width: 600px;
+        margin: 40px auto;
+        background: #ffffff;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      }
+      .email-header {
+        background: linear-gradient(135deg, #0d7377, #14a085);
+        padding: 40px 30px;
+        text-align: center;
+      }
+      .email-header h1 {
+        color: #ffffff;
+        font-size: 26px;
+        font-weight: 700;
+        margin-bottom: 8px;
+      }
+      .email-header p {
+        color: rgba(255, 255, 255, 0.85);
+        font-size: 14px;
+      }
+      .email-body {
+        padding: 40px 30px;
+      }
+      .greeting {
+        font-size: 18px;
+        font-weight: 600;
+        color: #0d7377;
+        margin-bottom: 16px;
+      }
+      .email-body p {
+        font-size: 15px;
+        line-height: 1.7;
+        color: #555;
+        margin-bottom: 16px;
+      }
+      .highlight-box {
+        background: #f0fafa;
+        border-left: 4px solid #0d7377;
+        padding: 16px 20px;
+        border-radius: 0 8px 8px 0;
+        margin: 24px 0;
+      }
+      .highlight-box p {
+        margin: 0;
+        color: #0d7377;
+        font-weight: 500;
+      }
+      .btn {
+        display: inline-block;
+        background: #0d7377;
+        color: #ffffff !important;
+        text-decoration: none;
+        padding: 14px 32px;
+        border-radius: 8px;
+        font-size: 15px;
+        font-weight: 600;
+        margin: 8px 0;
+      }
+      .btn-secondary {
+        display: inline-block;
+        background: transparent;
+        color: #0d7377 !important;
+        text-decoration: none;
+        padding: 12px 30px;
+        border-radius: 8px;
+        font-size: 15px;
+        font-weight: 600;
+        border: 2px solid #0d7377;
+        margin: 8px 0;
+      }
+      .btn-center {
+        text-align: center;
+        margin: 30px 0;
+      }
+      .divider {
+        border: none;
+        border-top: 1px solid #eee;
+        margin: 30px 0;
+      }
+      .programs {
+        display: flex;
+        gap: 12px;
+        margin: 20px 0;
+      }
+      .program-card {
+        flex: 1;
+        background: #f9f9f9;
+        border-radius: 8px;
+        padding: 16px;
+        text-align: center;
+      }
+      .program-card .icon {
+        font-size: 24px;
+        margin-bottom: 8px;
+      }
+      .program-card p {
+        font-size: 13px;
+        color: #666;
+        margin: 0;
+      }
+      .email-footer {
+        background: #2d2d2d;
+        padding: 30px;
+        text-align: center;
+      }
+      .email-footer p {
+        color: #999;
+        font-size: 13px;
+        line-height: 1.6;
+        margin-bottom: 8px;
+      }
+      .email-footer a {
+        color: #0d7377;
+        text-decoration: none;
+      }
+      .social-links {
+        margin: 16px 0;
+      }
+      .social-links a {
+        display: inline-block;
+        margin: 0 6px;
+        color: #bbb;
+        font-size: 13px;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class='email-wrapper'>
+
+      <!-- Header -->
+      <div class='email-header'>
+        <h1>🌿 Freminatos Charity</h1>
+        <p>Restoring Lives. Rebuilding Hope.</p>
+      </div>
+
+      <!-- Body -->
+      <div class='email-body'>
+        <p class='greeting'>Welcome, {{firstName}}! 👋</p>
+
+        <p>
+          We are thrilled to have you join the Freminatos community. Your
+          account has been successfully created and you are now part of a
+          movement that is changing lives in Tigray, Ethiopia.
+        </p>
+
+        <div class='highlight-box'>
+          <p>
+            🎉 You joined as:
+            <strong>{{role}}</strong><br />
+            📧 Your email:
+            <strong>{{email}}</strong>
+          </p>
+        </div>
+
+        <p>
+          To get the most out of your account, please verify your email address
+          by clicking the button below:
+        </p>
+
+        <div class='btn-center'>
+          <a href='{{verificationUrl}}' class='btn'>
+            ✅ Verify My Email
+          </a>
+        </div>
+
+        <p style='font-size: 13px; color: #999; text-align: center;'>
+          This link expires in 24 hours. If you did not create this account, you
+          can safely ignore this email.
+        </p>
+
+        <hr class='divider' />
+
+        <p style='font-weight: 600; color: #333; margin-bottom: 16px;'>
+          What you can do as a member:
+        </p>
+
+        <div style='margin-bottom: 12px;'>
+          <p>💬
+            <strong>Comment on news posts</strong>
+            — Share your thoughts and engage with our community updates</p>
+          <p>📋
+            <strong>Apply for expert membership</strong>
+            — Contribute your professional skills to support our programs</p>
+          <p>📰
+            <strong>Stay informed</strong>
+            — Get the latest news about our children's care, elderly support,
+            and recovery programs</p>
+          <p>🏗️
+            <strong>Support the new building</strong>
+            — Follow our fundraising progress for the new Freminatos facility</p>
+        </div>
+
+        <hr class='divider' />
+
+        <div class='btn-center'>
+          <a href='{{appUrl}}' class='btn-secondary'>
+            🌐 Visit Our Website
+          </a>
+        </div>
+
+        <p>
+          If you have any questions or need assistance, feel free to reach out
+          to us at
+          <a
+            href='mailto:info@freminatos.org'
+            style='color: #0D7377;'
+          >info@freminatos.org</a>
+        </p>
+
+        <p>
+          With gratitude,<br />
+          <strong>The Freminatos Team</strong>
+          🌿
+        </p>
+      </div>
+
+      <!-- Footer -->
+      <div class='email-footer'>
+        <p>
+          <strong style='color: #fff;'>Freminatos Charity Organization</strong>
+        </p>
+        <p>Mekelle, Tigray, Ethiopia</p>
+        <div class='social-links'>
+          <a href='#'>Facebook</a>
+          ·
+          <a href='#'>YouTube</a>
+          ·
+          <a href='#'>Telegram</a>
+          ·
+          <a href='#'>Instagram</a>
+        </div>
+        <p>
+          You received this email because you registered on
+          <a href='{{appUrl}}'>freminatos.org</a>
+        </p>
+      </div>
+
+    </div>
+  </body>
+</html>

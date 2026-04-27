@@ -1,0 +1,278 @@
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <title>Membership Application Received</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f5f5f5;
+        color: #333;
+      }
+      .email-wrapper {
+        max-width: 600px;
+        margin: 40px auto;
+        background: #ffffff;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      }
+      .email-header {
+        background: linear-gradient(135deg, #e8a838, #f5c842);
+        padding: 40px 30px;
+        text-align: center;
+      }
+      .email-header h1 {
+        color: #fff;
+        font-size: 24px;
+        margin-bottom: 8px;
+      }
+      .email-header p {
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 14px;
+      }
+      .email-body {
+        padding: 40px 30px;
+      }
+      .greeting {
+        font-size: 18px;
+        font-weight: 600;
+        color: #e8a838;
+        margin-bottom: 16px;
+      }
+      .email-body p {
+        font-size: 15px;
+        line-height: 1.7;
+        color: #555;
+        margin-bottom: 14px;
+      }
+      .info-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 24px 0;
+        border-radius: 8px;
+        overflow: hidden;
+      }
+      .info-table th {
+        background: #f9f9f9;
+        padding: 12px 16px;
+        text-align: left;
+        font-size: 13px;
+        color: #888;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        width: 40%;
+      }
+      .info-table td {
+        padding: 12px 16px;
+        font-size: 14px;
+        color: #333;
+        border-bottom: 1px solid #f0f0f0;
+      }
+      .status-badge {
+        display: inline-block;
+        background: #fff3cd;
+        color: #856404;
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 13px;
+        font-weight: 600;
+      }
+      .timeline {
+        margin: 24px 0;
+      }
+      .timeline-item {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 16px;
+      }
+      .timeline-dot {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        flex-shrink: 0;
+        margin-right: 14px;
+        margin-top: 2px;
+      }
+      .dot-done {
+        background: #d4edda;
+      }
+      .dot-current {
+        background: #fff3cd;
+      }
+      .dot-pending {
+        background: #f0f0f0;
+      }
+      .timeline-text p {
+        margin: 0;
+        font-size: 14px;
+      }
+      .timeline-text .label {
+        font-weight: 600;
+        color: #333;
+      }
+      .timeline-text .desc {
+        color: #888;
+        font-size: 13px;
+      }
+      .email-footer {
+        background: #2d2d2d;
+        padding: 30px;
+        text-align: center;
+      }
+      .email-footer p {
+        color: #999;
+        font-size: 13px;
+        line-height: 1.6;
+      }
+      .email-footer a {
+        color: #e8a838;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class='email-wrapper'>
+
+      <!-- Header -->
+      <div class='email-header'>
+        <h1>🌟 Application Received!</h1>
+        <p>Expert Membership — Freminatos Charity Organization</p>
+      </div>
+
+      <!-- Body -->
+      <div class='email-body'>
+        <p class='greeting'>Dear {{fullName}},</p>
+
+        <p>
+          Thank you for applying to become an expert member of Freminatos
+          Charity Organization. We have successfully received your application
+          and our team will review it carefully.
+        </p>
+
+        <p>
+          Your expertise and willingness to contribute means a great deal to us
+          and to the children, elders, and individuals recovering from mental
+          illness and addiction that we serve every day.
+        </p>
+
+        <!-- Application Summary -->
+        <table class='info-table'>
+          <tr>
+            <th>Full Name</th>
+            <td>{{fullName}}</td>
+          </tr>
+          <tr>
+            <th>Email</th>
+            <td>{{email}}</td>
+          </tr>
+          <tr>
+            <th>Primary Expertise</th>
+            <td>{{primaryExpertise}}</td>
+          </tr>
+          <tr>
+            <th>Experience</th>
+            <td>{{yearsOfExperience}} years</td>
+          </tr>
+          <tr>
+            <th>Current Role</th>
+            <td>{{currentRole}}</td>
+          </tr>
+          <tr>
+            <th>Availability</th>
+            <td>{{availabilityHoursPerWeek}} hours/week</td>
+          </tr>
+          <tr>
+            <th>Status</th>
+            <td><span class='status-badge'>⏳ Pending Review</span></td>
+          </tr>
+        </table>
+
+        <!-- Review Timeline -->
+        <p style='font-weight: 600; color: #333;'>
+          What happens next:
+        </p>
+
+        <div class='timeline'>
+          <div class='timeline-item'>
+            <div class='timeline-dot dot-done'>✅</div>
+            <div class='timeline-text'>
+              <p class='label'>Application Submitted</p>
+              <p class='desc'>Your application has been received</p>
+            </div>
+          </div>
+          <div class='timeline-item'>
+            <div class='timeline-dot dot-current'>👀</div>
+            <div class='timeline-text'>
+              <p class='label'>Under Review</p>
+              <p class='desc'>
+                Our team will review your qualifications and contribution plan
+                (typically 3-5 business days)
+              </p>
+            </div>
+          </div>
+          <div class='timeline-item'>
+            <div class='timeline-dot dot-pending'>📞</div>
+            <div class='timeline-text'>
+              <p class='label'>Interview / Follow-up</p>
+              <p class='desc'>
+                We may contact you for a brief discussion about how you can best
+                contribute
+              </p>
+            </div>
+          </div>
+          <div class='timeline-item'>
+            <div class='timeline-dot dot-pending'>🎉</div>
+            <div class='timeline-text'>
+              <p class='label'>Decision</p>
+              <p class='desc'>
+                You will receive an email with our final decision and your
+                membership details if approved
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <p>
+          If you have any questions about your application, please contact us at
+          <a
+            href='mailto:membership@freminatos.org'
+            style='color: #E8A838;'
+          >membership@freminatos.org</a>
+        </p>
+
+        <p>
+          With appreciation,<br />
+          <strong>The Freminatos Membership Team</strong>
+          🌿
+        </p>
+      </div>
+
+      <!-- Footer -->
+      <div class='email-footer'>
+        <p>
+          <strong style='color: #fff;'>
+            Freminatos Charity Organization
+          </strong>
+        </p>
+        <p>Mekelle, Tigray, Ethiopia</p>
+        <p style='margin-top: 12px;'>
+          <a href='{{appUrl}}'>Visit our website</a>
+          ·
+          <a href='mailto:membership@freminatos.org'>Contact us</a>
+        </p>
+      </div>
+
+    </div>
+  </body>
+</html>

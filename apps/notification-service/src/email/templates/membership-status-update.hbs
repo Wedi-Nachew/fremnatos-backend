@@ -1,0 +1,323 @@
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <title>Membership Application Update</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f5f5f5;
+      }
+      .email-wrapper {
+        max-width: 600px;
+        margin: 40px auto;
+        background: #ffffff;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      }
+      .header-approved {
+        background: linear-gradient(135deg, #27ae60, #2ecc71);
+        padding: 40px 30px;
+        text-align: center;
+      }
+      .header-rejected {
+        background: linear-gradient(135deg, #c0392b, #e74c3c);
+        padding: 40px 30px;
+        text-align: center;
+      }
+      .header-review {
+        background: linear-gradient(135deg, #2980b9, #3498db);
+        padding: 40px 30px;
+        text-align: center;
+      }
+      .email-header h1 {
+        color: #fff;
+        font-size: 24px;
+        margin-bottom: 8px;
+      }
+      .email-header p {
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 14px;
+      }
+      .email-body {
+        padding: 40px 30px;
+      }
+      .email-body p {
+        font-size: 15px;
+        line-height: 1.7;
+        color: #555;
+        margin-bottom: 14px;
+      }
+      .membership-card {
+        background: linear-gradient(135deg, #0d7377, #14a085);
+        border-radius: 12px;
+        padding: 30px;
+        text-align: center;
+        margin: 24px 0;
+        color: white;
+      }
+      .membership-card .org-name {
+        font-size: 13px;
+        opacity: 0.8;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 8px;
+      }
+      .membership-card .member-name {
+        font-size: 22px;
+        font-weight: 700;
+        margin-bottom: 4px;
+      }
+      .membership-card .expertise {
+        font-size: 14px;
+        opacity: 0.85;
+        margin-bottom: 16px;
+      }
+      .membership-card .number {
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 8px;
+        padding: 10px 20px;
+        display: inline-block;
+        font-size: 18px;
+        font-weight: 700;
+        letter-spacing: 2px;
+      }
+      .membership-card .number-label {
+        font-size: 11px;
+        opacity: 0.7;
+        margin-top: 4px;
+      }
+      .info-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 16px 0;
+      }
+      .info-table th {
+        background: #f9f9f9;
+        padding: 10px 14px;
+        text-align: left;
+        font-size: 12px;
+        color: #999;
+        font-weight: 600;
+        text-transform: uppercase;
+        width: 40%;
+      }
+      .info-table td {
+        padding: 10px 14px;
+        font-size: 14px;
+        color: #333;
+        border-bottom: 1px solid #f0f0f0;
+      }
+      .btn {
+        display: inline-block;
+        background: #0d7377;
+        color: #fff !important;
+        text-decoration: none;
+        padding: 14px 32px;
+        border-radius: 8px;
+        font-size: 15px;
+        font-weight: 600;
+      }
+      .btn-center {
+        text-align: center;
+        margin: 24px 0;
+      }
+      .admin-note {
+        background: #f8f9fa;
+        border-left: 4px solid #6c757d;
+        padding: 14px 18px;
+        border-radius: 0 8px 8px 0;
+        margin: 20px 0;
+      }
+      .admin-note p {
+        margin: 0;
+        color: #555;
+        font-style: italic;
+      }
+      .email-footer {
+        background: #2d2d2d;
+        padding: 30px;
+        text-align: center;
+      }
+      .email-footer p {
+        color: #999;
+        font-size: 13px;
+        line-height: 1.6;
+      }
+      .email-footer a {
+        color: #0d7377;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class='email-wrapper'>
+
+      <!-- Dynamic Header based on status -->
+      {{#if isApproved}}
+        <div class='header-approved email-header'>
+          <h1>🎉 Application Approved!</h1>
+          <p>Welcome to the Freminatos Expert Membership</p>
+        </div>
+      {{else if isRejected}}
+        <div class='header-rejected email-header'>
+          <h1>Application Update</h1>
+          <p>Thank you for your interest in Freminatos</p>
+        </div>
+      {{else}}
+        <div class='header-review email-header'>
+          <h1>👀 Application Under Review</h1>
+          <p>Your application is being reviewed by our team</p>
+        </div>
+      {{/if}}
+
+      <!-- Body -->
+      <div class='email-body'>
+        <p>Dear <strong>{{fullName}}</strong>,</p>
+
+        {{#if isApproved}}
+          <!-- APPROVED -->
+          <p>
+            We are delighted to inform you that your expert membership
+            application has been
+            <strong>approved!</strong>
+            🎉 Welcome to the Freminatos family!
+          </p>
+
+          <!-- Membership Card -->
+          <div class='membership-card'>
+            <p class='org-name'>Freminatos Charity Organization</p>
+            <p class='member-name'>{{fullName}}</p>
+            <p class='expertise'>{{primaryExpertise}} Expert Member</p>
+            <div class='number'>{{membershipNumber}}</div>
+            <p class='number-label'>Membership Number</p>
+          </div>
+
+          <table class='info-table'>
+            <tr>
+              <th>Name</th>
+              <td>{{fullName}}</td>
+            </tr>
+            <tr>
+              <th>Expertise</th>
+              <td>{{primaryExpertise}}</td>
+            </tr>
+            <tr>
+              <th>Membership No.</th>
+              <td><strong>{{membershipNumber}}</strong></td>
+            </tr>
+            <tr>
+              <th>Status</th>
+              <td>✅ Active Member</td>
+            </tr>
+          </table>
+
+          <p>
+            Our team will be in touch soon to discuss how and when you can begin
+            contributing your expertise. In the meantime, feel free to explore
+            our website and get familiar with our programs and current projects.
+          </p>
+
+          <div class='btn-center'>
+            <a href='{{appUrl}}' class='btn'>🌐 Visit Freminatos</a>
+          </div>
+
+        {{else if isRejected}}
+          <!-- REJECTED -->
+          <p>
+            After careful review of your application, we regret to inform you
+            that we are unable to approve your expert membership application at
+            this time.
+          </p>
+
+          <p>
+            This decision does not reflect your qualifications or expertise. It
+            may be due to our current capacity or a mismatch with our immediate
+            program needs.
+          </p>
+
+          {{#if adminNotes}}
+            <div class='admin-note'>
+              <p><strong>Reviewer notes:</strong> {{adminNotes}}</p>
+            </div>
+          {{/if}}
+
+          <p>
+            You are welcome to reapply in the future, and we encourage you to
+            continue following our work and supporting our mission in other ways
+            — such as donating or sharing our campaigns.
+          </p>
+
+          <div class='btn-center'>
+            <a href='{{appUrl}}/get-involved' class='btn'>
+              Other Ways to Help
+            </a>
+          </div>
+
+        {{else}}
+          <!-- UNDER REVIEW -->
+          <p>
+            We wanted to let you know that your expert membership application is
+            now
+            <strong>under active review</strong>
+            by our team.
+          </p>
+
+          <p>
+            We are carefully evaluating your qualifications, expertise, and how
+            your contribution can best support our programs. This process
+            typically takes 3-5 business days.
+          </p>
+
+          {{#if adminNotes}}
+            <div class='admin-note'>
+              <p><strong>Note from our team:</strong> {{adminNotes}}</p>
+            </div>
+          {{/if}}
+
+          <p>
+            We may reach out to schedule a brief call or ask follow-up
+            questions. Please keep an eye on your inbox.
+          </p>
+
+        {{/if}}
+
+        <p>
+          For any questions, contact us at
+          <a
+            href='mailto:membership@freminatos.org'
+            style='color: #0D7377;'
+          >membership@freminatos.org</a>
+        </p>
+
+        <p>
+          With gratitude,<br />
+          <strong>The Freminatos Team</strong>
+          🌿
+        </p>
+      </div>
+
+      <!-- Footer -->
+      <div class='email-footer'>
+        <p>
+          <strong style='color: #fff;'>
+            Freminatos Charity Organization
+          </strong>
+        </p>
+        <p>Mekelle, Tigray, Ethiopia</p>
+        <p style='margin-top: 12px;'>
+          <a href='{{appUrl}}'>freminatos.org</a>
+          ·
+          <a href='mailto:info@freminatos.org'>info@freminatos.org</a>
+        </p>
+      </div>
+
+    </div>
+  </body>
+</html>
